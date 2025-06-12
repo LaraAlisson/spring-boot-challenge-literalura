@@ -9,14 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
-	// Remove a injeção direta de LivroRepository aqui se Principal for a responsável por usá-lo.
-	// @Autowired
-	// private LivroRepository repositorio;
-
-	// Injeta a sua classe Principal.
-	// Como Principal é um @Component, o Spring a gerenciará e injetará seus próprios @Autowired.
 	@Autowired
-	private Principal principal; // Agora o Spring vai injetar a instância de Principal aqui
+	private Principal principal;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -24,8 +18,6 @@ public class Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// Agora, você não cria uma nova instância de Principal.
-		// Em vez disso, usa a instância 'principal' que o Spring injetou.
-		principal.exibirMenu(); // Chama o menu da instância de Principal gerenciada pelo Spring
+		principal.exibirMenu();
 	}
 }

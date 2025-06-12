@@ -1,8 +1,7 @@
 package br.lara.alisson.challenge.consultalivros.model;
 
-
 import jakarta.persistence.*;
-        import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,7 +12,7 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true) // O nome do autor deve ser único
+    @Column(nullable = false, unique = true)
     private String nome;
 
     private Integer anoNascimento;
@@ -22,9 +21,8 @@ public class Autor {
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Livro> livros = new ArrayList<>();
 
-    // Construtores, getters e setters (omitidos para brevidade)
+    // Construtores
     public Autor(){}
-    // Exemplo de construtor
     public Autor(String nome, Integer anoNascimento, Integer anoFalecimento) {
         this.nome = nome;
         this.anoNascimento = anoNascimento;
@@ -52,7 +50,7 @@ public class Autor {
         return livros;
     }
 
-    // Setters (se necessário)
+    // Setters
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -65,19 +63,13 @@ public class Autor {
         this.anoFalecimento = anoFalecimento;
     }
 
-    // Método para adicionar um livro (opcional, pode ser feito no Livro)
-//    public void adicionarLivro(Livro livro) {
-//        this.livros.add(livro);
-//        livro.setAutor(this); // Garante a ligação bidirecional
-//    }
-
-
     @Override
     public String toString() {
-        return "Autor :" +
-                ", nome='" + nome + '\'' +
-                ", anoNascimento=" + anoNascimento +
-                ", anoFalecimento=" + anoFalecimento +
-                ", livros=" + livros ;
+
+        return "Autor:" +
+                "  ID=" + id +
+                ", Nome='" + nome + '\'' +
+                ", Ano de Nascimento=" + (anoNascimento != null ? anoNascimento : "N/A") +
+                ", Ano de Falecimento=" + (anoFalecimento != null ? anoFalecimento : "N/A");
     }
 }
