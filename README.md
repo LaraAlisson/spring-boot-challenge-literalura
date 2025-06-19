@@ -92,7 +92,7 @@ Este projeto foi desenvolvido como parte de um desafio de backend, visando conso
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/LaraAlisson/spring-boot-challenge-literalura.git](https://github.com/LaraAlisson/spring-boot-challenge-literalura.git)
+    git clone https://github.com/LaraAlisson/spring-boot-challenge-literalura.git
     ```
 2.  **Navegue até o diretório do projeto:**
     ```bash
